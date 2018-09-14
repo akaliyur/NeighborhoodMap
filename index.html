@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Neighborhood Map Project - Udacity</title>
+	<!-- Styles -->
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+	<!-- Custom CSS -->
+	<link rel="stylesheet" type="text/css" href="css/styles.css">
+</head>
+<body>
+
+	<!-- Header -->
+	<div class="jumbotron">
+		<header>
+			<h1 class="h1 text-center"><span class="heading">Restaurants in Houston</span></h1>
+		</header>
+	</div>
+	<!-- Body -->
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-3">
+				<input class="filterInput" type="text" class="form-control" placeholder="filter places..." data-bind="value: filterInput, valueUpdate: 'afterkeydown', event:{keyup: applyFilter}">
+				<div class="restaurant-list">
+					<ul class="list-group" data-bind="foreach: markers">
+						<a href="#" class="list-group-item" data-bind="visible: show,click: $parent.populateInfoWindow">
+							<div id="restaurant-name" data-bind="text: title" class="restaurant-name"></div>
+							<span class="text-center small restaurant-address" data-bind="text: address"></span>
+						</a>
+					</ul>
+				</div>
+			</div>
+			<div class="col-md-9">
+				<div id="map" class="map"></div>
+			</div>
+		</div>
+
+	<!-- Scripts -->
+	
+	<!-- JQuery -->
+	<script
+		src="https://code.jquery.com/jquery-3.3.1.min.js"
+		integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+		crossorigin="anonymous">
+	</script>
+	<!-- Knockout JS -->
+	<script src="js/knockout-3.4.2.js"></script>
+	<!-- app.js -->
+	<script src="js/app.js"></script>
+	<!-- Google Maps -->
+	<script async 
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAilrJzCGhg6jqdj0-6LOUsOoJUDHuIeB4&libraries=geometry&v=3&callback=initMap"
+		onerror="mapLoadError()">
+	</script>
+</body>
+</html>
